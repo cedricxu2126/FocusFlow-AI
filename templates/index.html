@@ -24,7 +24,7 @@
 
         <a href="/" class="nav-link active">Dashboard</a>
         <a href="/tasks" class="nav-link">My Tasks</a>
-        <a href="#" class="nav-link">AI Planner</a>
+        <a href="/planner" class="nav-link">AI Planner</a>
 
         <p class="nav-label">WELLNESS</p>
 
@@ -64,28 +64,28 @@
 
         </section>
 
-        <!-- Productivity statistics -->
-        <section class="stats-grid">
+    <!-- Productivity statistics -->
+    <section class="stats-grid">
 
-            <div class="stat-card">
-                <p>Total Tasks</p>
-                <h3>0</h3>
-                <small>Your current workload</small>
-            </div>
+        <div class="stat-card">
+            <p>Total Tasks</p>
+            <h3>{{ total_tasks }}</h3>
+            <small>Your current workload</small>
+        </div>
 
-            <div class="stat-card">
-                <p>Completed Tasks</p>
-                <h3>0</h3>
-                <small>Keep making progress</small>
-            </div>
+        <div class="stat-card">
+            <p>Completed Tasks</p>
+            <h3>{{ completed_tasks }}</h3>
+            <small>Keep making progress</small>
+        </div>
 
-            <div class="stat-card">
-                <p>Focus Time</p>
-                <h3>0 hrs</h3>
-                <small>Time spent concentrating</small>
-            </div>
+        <div class="stat-card">
+            <p>Pending Tasks</p>
+            <h3>{{ pending_tasks }}</h3>
+            <small>Tasks remaining</small>
+        </div>
 
-        </section>
+    </section>
 
         <!-- Tasks and AI planner -->
         <section class="dashboard-grid">
@@ -94,32 +94,41 @@
 
                 <h2>Today's Tasks</h2>
 
-                <div class="task-item">
-                    <input type="checkbox" class="task-check">
-                    <div class="task-details">
-                        <strong>Example: Review assignments</strong>
-                        <small>Example task · High priority</small>
-                    </div>
-                    <span class="task-tag">High</span>
-                </div>
+                {% if tasks %}
 
-                <div class="task-item">
-                    <input type="checkbox" class="task-check">
-                    <div class="task-details">
-                        <strong>Example: Study for exams</strong>
-                        <small>Example task · Medium priority</small>
-                    </div>
-                    <span class="task-tag">Medium</span>
-                </div>
+                    {% for task in tasks %}
 
-                <div class="task-item">
-                    <input type="checkbox" class="task-check">
-                    <div class="task-details">
-                        <strong>Example: Organize schedule</strong>
-                        <small>Example task · Low priority</small>
-                    </div>
-                    <span class="task-tag">Low</span>
-                </div>
+                        <div class="task-item">
+
+                            <input
+                                type="checkbox"
+                                class="task-check"
+                                {% if task.status == 'Completed' %}checked{% endif %}
+                                disabled
+                            >
+
+                            <div class="task-details">
+                                <strong>{{ task.title }}</strong>
+
+                                <small>
+                                    {{ task.description or "No description provided." }}
+                                    · {{ task.status }}
+                                </small>
+                            </div>
+
+                            <span class="task-tag">{{ task.priority }}</span>
+
+                        </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <p class="empty-message">
+                        No tasks yet. Visit My Tasks to create your first task!
+                    </p>
+
+                {% endif %}
 
             </div>
 

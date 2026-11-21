@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FocusFlow AI | AI Planner</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar navigation -->
+    <aside class="sidebar">
+
+        <div class="logo">FocusFlow <span>AI</span></div>
+
+        <p class="nav-label">WORKSPACE</p>
+
+        <a href="/" class="nav-link">Dashboard</a>
+        <a href="/tasks" class="nav-link">My Tasks</a>
+        <a href="/planner" class="nav-link active">AI Planner</a>
+
+        <p class="nav-label">WELLNESS</p>
+
+        <a href="#" class="nav-link">Focus Mode</a>
+        <a href="#" class="nav-link">Break Activities</a>
+        <a href="#" class="nav-link">Statistics</a>
+
+        <div class="sidebar-bottom">
+            <a href="#" class="nav-link">Settings</a>
+        </div>
+
+    </aside>
+
+    <!-- Main planner content -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>AI Planner</h1>
+                <p>Plan your workload and organize your day.</p>
+            </div>
+
+            <div class="profile">My Workspace</div>
+
+        </header>
+
+        <!-- Planner introduction -->
+        <section class="welcome-banner">
+
+            <h2>Your Personal Productivity Planner</h2>
+
+            <p>
+                Let FocusFlow AI analyze your tasks, identify priorities,
+                and help you create a productive schedule.
+            </p>
+
+        </section>
+
+        <!-- Workload overview -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <p>Total Tasks</p>
+                <h3 id="total-tasks">--</h3>
+                <small>Current workload</small>
+            </div>
+
+            <div class="stat-card">
+                <p>Pending Tasks</p>
+                <h3 id="pending-tasks">--</h3>
+                <small>Tasks remaining</small>
+            </div>
+
+            <div class="stat-card">
+                <p>Estimated Workload</p>
+                <h3 id="workload-time">--</h3>
+                <small>Based on task estimates</small>
+            </div>
+
+        </section>
+
+        <!-- Planner recommendations -->
+        <section class="dashboard-grid">
+
+            <div class="panel">
+
+                <h2>Recommended Task Order</h2>
+
+                <p>
+                    Review your tasks and receive recommendations
+                    about what to work on first.
+                </p>
+
+                <div id="recommendations">
+
+                    <p class="empty-message">
+                        Your recommendations will appear here.
+                    </p>
+
+                </div>
+
+                <button id="generate-plan" class="primary-button">
+                    Generate My Plan
+                </button>
+
+            </div>
+
+            <div class="panel">
+
+                <h2>Productivity Insights</h2>
+
+                <div class="ai-panel">
+
+                    <h3>Workload Analysis</h3>
+
+                    <p id="workload-insight">
+                        Generate a plan to see your workload analysis.
+                    </p>
+
+                </div>
+
+                <div class="ai-panel">
+
+                    <h3>Break Recommendation</h3>
+
+                    <p id="break-insight">
+                        Break suggestions will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/planner.js') }}"></script>
+
+</body>
+</html>
