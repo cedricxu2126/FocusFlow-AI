@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow AI | Break Activities</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="logo">FocusFlow <span>AI</span></div>
+
+        <p class="nav-label">WORKSPACE</p>
+        <a href="/" class="nav-link">Dashboard</a>
+        <a href="/tasks" class="nav-link">My Tasks</a>
+        <a href="/planner" class="nav-link">AI Planner</a>
+
+        <p class="nav-label">WELLNESS</p>
+        <a href="/focus" class="nav-link">Focus Mode</a>
+        <a href="/breaks" class="nav-link active">Break Activities</a>
+        <a href="/statistics" class="nav-link">Statistics</a>
+
+        <div class="sidebar-bottom">
+            <a href="/settings" class="nav-link">Settings</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Break Activities</h1>
+                <p>Take a moment to recharge your mind.</p>
+            </div>
+            <div class="profile">My Workspace</div>
+        </header>
+
+        <section class="break-container">
+
+            <div class="break-card">
+                <h2>Break Timer</h2>
+                <p>Choose how long you want to take a break.</p>
+
+                <div class="timer-display" id="break-timer-display">
+                    {{ "%02d"|format(settings.break_duration) }}:00
+                </div>
+
+                <label for="break-duration">
+                    Break duration (minutes)
+                </label>
+
+                <input type="number"
+                       id="break-duration"
+                       min="1"
+                       max="60"
+                       value="{{ settings.break_duration }}"
+                >
+
+                <div class="timer-controls">
+                    <button id="break-start">Start</button>
+                    <button id="break-pause" disabled>Pause</button>
+                    <button id="break-reset">Reset</button>
+                </div>
+
+                <p id="break-status">Ready for a break?</p>
+            </div>
+
+            <div class="break-card">
+                <h2>Brain Teasers</h2>
+                <p>Give your brain a quick challenge!</p>
+
+                <div class="teaser-content">
+                    <h3 id="teaser-number">Question 1</h3>
+
+                    <p id="teaser-question">
+                        What has keys but cannot open locks?
+                    </p>
+
+                    <p id="teaser-answer" hidden>
+                        A piano!
+                    </p>
+
+                    <div class="timer-controls">
+                        <button id="show-answer">
+                            Reveal Answer
+                        </button>
+
+                        <button id="next-teaser">
+                            Next Question
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/breaks.js') }}"></script>
+</body>
+</html>

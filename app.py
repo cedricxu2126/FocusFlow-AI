@@ -1,6 +1,10 @@
 
 from flask import Flask, render_template
 from dotenv import load_dotenv
+from routes.focus import focus_bp
+from routes.breaks import breaks_bp
+from routes.statistics import statistics_bp
+from routes.settings import settings_bp
 
 
 from database.db import initialize_database
@@ -15,6 +19,10 @@ app = Flask(__name__)
 # Register the task management routes
 app.register_blueprint(tasks_bp)
 app.register_blueprint(planner_bp)
+app.register_blueprint(focus_bp)
+app.register_blueprint(breaks_bp)
+app.register_blueprint(statistics_bp)
+app.register_blueprint(settings_bp)
 
 
 @app.route("/")

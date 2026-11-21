@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FocusFlow AI | Settings</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+
+        <div class="logo">FocusFlow <span>AI</span></div>
+
+        <p class="nav-label">WORKSPACE</p>
+        <a href="/" class="nav-link">Dashboard</a>
+        <a href="/tasks" class="nav-link">My Tasks</a>
+        <a href="/planner" class="nav-link">AI Planner</a>
+
+        <p class="nav-label">WELLNESS</p>
+        <a href="/focus" class="nav-link">Focus Mode</a>
+        <a href="/breaks" class="nav-link">Break Activities</a>
+        <a href="/statistics" class="nav-link">Statistics</a>
+
+        <div class="sidebar-bottom">
+            <a href="/settings" class="nav-link active">Settings</a>
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Settings</h1>
+                <p>Customize your FocusFlow AI experience.</p>
+            </div>
+
+            <div class="profile">My Workspace</div>
+        </header>
+
+        <section class="panel settings-panel">
+
+            <h2>Timer Preferences</h2>
+
+            <p class="settings-description">
+                Choose the default durations for your focus sessions
+                and breaks.
+            </p>
+
+            <div class="setting-item">
+                <label for="focus-duration">
+                    Default Focus Duration
+                </label>
+
+                <div class="setting-input">
+                    <input
+                        type="number"
+                        id="focus-duration"
+                        min="1"
+                        max="180"
+                        value="{{ settings.focus_duration }}"
+                    >
+                    <span>minutes</span>
+                </div>
+
+                <small>Choose between 1 and 180 minutes.</small>
+            </div>
+
+            <div class="setting-item">
+                <label for="break-duration">
+                    Default Break Duration
+                </label>
+
+                <div class="setting-input">
+                    <input
+                        type="number"
+                        id="break-duration"
+                        min="1"
+                        max="60"
+                        value="{{ settings.break_duration }}"
+                    >
+                    <span>minutes</span>
+                </div>
+
+                <small>Choose between 1 and 60 minutes.</small>
+            </div>
+
+            <button id="save-settings" class="primary-button">
+                Save Settings
+            </button>
+
+            <p id="settings-message" role="status"></p>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+
+</body>
+</html>

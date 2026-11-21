@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FocusFlow AI | Statistics</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+
+        <div class="logo">FocusFlow <span>AI</span></div>
+
+        <p class="nav-label">WORKSPACE</p>
+        <a href="/" class="nav-link">Dashboard</a>
+        <a href="/tasks" class="nav-link">My Tasks</a>
+        <a href="/planner" class="nav-link">AI Planner</a>
+
+        <p class="nav-label">WELLNESS</p>
+        <a href="/focus" class="nav-link">Focus Mode</a>
+        <a href="/breaks" class="nav-link">Break Activities</a>
+        <a href="/statistics" class="nav-link active">Statistics</a>
+
+        <div class="sidebar-bottom">
+            <a href="/settings" class="nav-link">Settings</a>
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Statistics</h1>
+                <p>Track your productivity and focus progress.</p>
+            </div>
+
+            <div class="profile">My Workspace</div>
+        </header>
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <p>Total Tasks</p>
+                <h3>{{ total_tasks }}</h3>
+                <small>Tasks in your workspace</small>
+            </div>
+
+            <div class="stat-card">
+                <p>Completed Tasks</p>
+                <h3>{{ completed_tasks }}</h3>
+                <small>Successfully finished</small>
+            </div>
+
+            <div class="stat-card">
+                <p>Pending Tasks</p>
+                <h3>{{ pending_tasks }}</h3>
+                <small>Still to complete</small>
+            </div>
+
+        </section>
+
+        <section class="dashboard-grid">
+
+            <div class="panel">
+                <h2>Task Completion</h2>
+
+                <h3>{{ completion_rate }}%</h3>
+
+                <p>
+                    Your current task completion rate.
+                </p>
+
+                <div class="progress-track">
+                    <div class="progress-fill"
+                         style="width: {{ completion_rate }}%;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>Today's Focus Activity</h2>
+
+                <div class="focus-stat">
+                    <h3>{{ completed_sessions }}</h3>
+                    <p>Completed focus sessions</p>
+                </div>
+
+                <div class="focus-stat">
+                    <h3>{{ total_minutes }} min</h3>
+                    <p>Total focus time today</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

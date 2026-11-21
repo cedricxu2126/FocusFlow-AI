@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow AI | Focus Mode</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">FocusFlow <span>AI</span></div>
+
+        <p class="nav-label">WORKSPACE</p>
+
+        <a href="/" class="nav-link">Dashboard</a>
+        <a href="/tasks" class="nav-link">My Tasks</a>
+        <a href="/planner" class="nav-link">AI Planner</a>
+
+        <p class="nav-label">WELLNESS</p>
+
+        <a href="/focus" class="nav-link active">Focus Mode</a>
+        <a href="/breaks" class="nav-link">Break Activities</a>
+        <a href="/statistics" class="nav-link">Statistics</a>
+
+        <div class="sidebar-bottom">
+            <a href="/settings" class="nav-link">Settings</a>
+        </div>
+
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Focus Mode</h1>
+                <p>Concentrate on one task at a time and make progress.</p>
+            </div>
+
+            <div class="profile">My Workspace</div>
+        </header>
+
+        <section class="focus-container">
+
+            <!-- Timer -->
+            <div class="focus-card">
+                <h2>Focus Session</h2>
+                <p id="timer-status">Ready to focus?</p>
+
+                <div class="timer-display" id="timer-display">
+                    {{ "%02d"|format(settings.focus_duration) }}:00
+                </div>
+
+                <div class="timer-controls">
+                    <button id="start-button">Start</button>
+                    <button id="pause-button" disabled>Pause</button>
+                    <button id="reset-button">Reset</button>
+                </div>
+
+                <p class="session-note">
+                    Complete your session to record your focus time.
+                </p>
+            </div>
+
+            <!-- Settings -->
+            <div class="focus-card">
+                <h2>Session Settings</h2>
+
+                <label for="focus-duration">
+                    Focus duration (minutes)
+                </label>
+
+                <input
+                    type="number"
+                    id="focus-duration"
+                    min="1"
+                    max="180"
+                    value="{{ settings.focus_duration }}"
+                >
+
+                <p>Choose how long you want to concentrate.</p>
+            </div>
+
+            <!-- Statistics -->
+            <div class="focus-card">
+                <h2>Today's Focus</h2>
+
+                <div class="focus-stat">
+                    <h3 id="completed-sessions">0</h3>
+                    <p>Completed Sessions</p>
+                </div>
+
+                <div class="focus-stat">
+                    <h3 id="total-focus-time">0 min</h3>
+                    <p>Total Focus Time</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/focus.js') }}"></script>
+</body>
+</html>
