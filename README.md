@@ -109,6 +109,29 @@ The database is initialized automatically when the Flask application starts.
 - Sound notifications when timers finish
 - Expanded scheduling options
 
+## Application Screenshots
+
+### Dashboard
+![FocusFlow AI Dashboard](screenshots/dashboard.png)
+
+### Task Management
+![Task Management](screenshots/tasks.png)
+
+### AI Planner
+![AI Planner](screenshots/planner.png)
+
+### Focus Mode
+![Focus Mode](screenshots/focus.png)
+
+### Break Activities
+![Break Activities](screenshots/breaks.png)
+
+### Statistics
+![Productivity Statistics](screenshots/statistics.png)
+
+### Settings
+![Application Settings](screenshots/settings.png)
+
 ## Author
 
 Developed as an AI-assisted software development course project.
