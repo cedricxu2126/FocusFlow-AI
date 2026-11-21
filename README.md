@@ -52,7 +52,7 @@ FocusFlow AI is a productivity and task management web application designed to h
 5. Install dependencies:
 
    ```bash
-   pip install Flask python-dotenv openai
+   pip install -r requirements.txt
    ```
 
 6. Start the application:
