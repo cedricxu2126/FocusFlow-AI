@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FocusFlow AI | My Tasks</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">FocusFlow <span>AI</span></div>
+
+        <p class="nav-label">WORKSPACE</p>
+
+        <a href="/" class="nav-link">Dashboard</a>
+        <a href="/tasks" class="nav-link active">My Tasks</a>
+        <a href="#" class="nav-link">AI Planner</a>
+
+        <p class="nav-label">WELLNESS</p>
+
+        <a href="#" class="nav-link">Focus Mode</a>
+        <a href="#" class="nav-link">Break Activities</a>
+        <a href="#" class="nav-link">Statistics</a>
+
+        <div class="sidebar-bottom">
+            <a href="#" class="nav-link">Settings</a>
+        </div>
+
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>My Tasks</h1>
+                <p>Organize your workload and keep track of your progress.</p>
+            </div>
+        </header>
+
+        <!-- Task creation form -->
+        <section class="panel task-form-panel">
+
+            <h2 id="form-heading">Add a New Task</h2>
+
+            <form id="task-form">
+
+                <label for="task-title">Task Title *</label>
+                <input type="text" id="task-title"
+                       placeholder="What do you need to accomplish?"
+                       maxlength="150" required>
+
+                <label for="task-description">Description</label>
+                <textarea id="task-description"
+                          placeholder="Add some details about your task..."
+                          rows="3"></textarea>
+
+                <div class="form-row">
+
+                    <div>
+                        <label for="task-due-date">Due Date</label>
+                        <input type="date" id="task-due-date">
+                    </div>
+
+                    <div>
+                        <label for="task-priority">Priority</label>
+                        <select id="task-priority">
+                            <option value="Low">Low</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="task-estimate">Estimated Minutes</label>
+                        <input type="number" id="task-estimate"
+                               min="1" placeholder="e.g. 60">
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="primary-button"
+                            id="submit-button">
+                        Add Task
+                    </button>
+
+                    <button type="button" class="secondary-button"
+                            id="cancel-edit" hidden>
+                        Cancel Edit
+                    </button>
+                </div>
+
+                <p id="form-message" role="status"></p>
+
+            </form>
+
+        </section>
+
+        <!-- Task list -->
+        <section class="panel task-list-panel">
+
+            <div class="task-list-heading">
+                <h2>Your Tasks</h2>
+
+                <select id="task-filter" aria-label="Filter tasks">
+                    <option value="All">All Tasks</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+
+            <div id="task-list">
+                <p>Loading your tasks...</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/tasks.js') }}"></script>
+
+</body>
+</html>

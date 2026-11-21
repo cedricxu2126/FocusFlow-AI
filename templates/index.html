@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FocusFlow AI | Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar navigation -->
+    <aside class="sidebar">
+
+        <div class="logo">FocusFlow <span>AI</span></div>
+
+        <p class="nav-label">WORKSPACE</p>
+
+        <a href="/" class="nav-link active">Dashboard</a>
+        <a href="/tasks" class="nav-link">My Tasks</a>
+        <a href="#" class="nav-link">AI Planner</a>
+
+        <p class="nav-label">WELLNESS</p>
+
+        <a href="#" class="nav-link">Focus Mode</a>
+        <a href="#" class="nav-link">Break Activities</a>
+        <a href="#" class="nav-link">Statistics</a>
+
+        <div class="sidebar-bottom">
+            <a href="#" class="nav-link">Settings</a>
+        </div>
+
+    </aside>
+
+    <!-- Main dashboard -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Here's an overview of your productivity.</p>
+            </div>
+
+            <div class="profile">My Workspace</div>
+
+        </header>
+
+        <!-- Welcome banner -->
+        <section class="welcome-banner">
+
+            <h2>Welcome to FocusFlow AI!</h2>
+
+            <p>
+                Stay organized, manage your workload, and remember
+                to take breaks. Let's make today productive.
+            </p>
+
+        </section>
+
+        <!-- Productivity statistics -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <p>Total Tasks</p>
+                <h3>0</h3>
+                <small>Your current workload</small>
+            </div>
+
+            <div class="stat-card">
+                <p>Completed Tasks</p>
+                <h3>0</h3>
+                <small>Keep making progress</small>
+            </div>
+
+            <div class="stat-card">
+                <p>Focus Time</p>
+                <h3>0 hrs</h3>
+                <small>Time spent concentrating</small>
+            </div>
+
+        </section>
+
+        <!-- Tasks and AI planner -->
+        <section class="dashboard-grid">
+
+            <div class="panel">
+
+                <h2>Today's Tasks</h2>
+
+                <div class="task-item">
+                    <input type="checkbox" class="task-check">
+                    <div class="task-details">
+                        <strong>Example: Review assignments</strong>
+                        <small>Example task · High priority</small>
+                    </div>
+                    <span class="task-tag">High</span>
+                </div>
+
+                <div class="task-item">
+                    <input type="checkbox" class="task-check">
+                    <div class="task-details">
+                        <strong>Example: Study for exams</strong>
+                        <small>Example task · Medium priority</small>
+                    </div>
+                    <span class="task-tag">Medium</span>
+                </div>
+
+                <div class="task-item">
+                    <input type="checkbox" class="task-check">
+                    <div class="task-details">
+                        <strong>Example: Organize schedule</strong>
+                        <small>Example task · Low priority</small>
+                    </div>
+                    <span class="task-tag">Low</span>
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <h2>AI Productivity Assistant</h2>
+
+                <div class="ai-panel">
+                    <h3>Your daily productivity tip</h3>
+
+                    <p>
+                        Break larger assignments into smaller tasks.
+                        Focus on one priority at a time and schedule
+                        short breaks to recharge.
+                    </p>
+                </div>
+
+                <a href="#" class="primary-button">Explore AI Planner</a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>
